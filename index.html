@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Beauty Saloon</title>
+		<link rel="stylesheet" href="style/style.css" />
+	</head>
+	<body>
+		<!-- Nav bar responsiva con menú hamburguesa -->
+		<nav class="nav">
+			<a href="./index.html" class="nav-icon-wrapper">
+				<img src="/assets/avatar.png" class="nav-icon" />
+				<h1 class="nav-title">Beauty Saloon</h1>
+			</a>
+			<button id="toggleBtn" class="toggle-btn">
+				<span class="bar"></span>
+				<span class="bar"></span>
+				<span class="bar"></span>
+			</button>
+			<ul class="nav-links">
+				<li>
+					<a href="./index.html" class="nav-link"><p>home</p></a>
+				</li>
+				<li>
+					<a href="#services" class="nav-link"><p>services</p></a>
+				</li>
+				<li>
+					<a href="#team" class="nav-link"><p>team</p></a>
+				</li>
+				<li>
+					<a href="#why-us" class="nav-link"><p>why us</p></a>
+				</li>
+			</ul>
+			<ul id="sideBar" class="sidebar">
+				<li>
+					<a href="./index.html" class="sidebar-link"><p>home</p></a>
+				</li>
+				<li>
+					<a href="#services" class="sidebar-link"><p>services</p></a>
+				</li>
+				<li>
+					<a href="#team" class="sidebar-link"><p>team</p></a>
+				</li>
+				<li>
+					<a href="#why-us" class="sidebar-link"><p>why us</p></a>
+				</li>
+			</ul>
+		</nav>
+
+		<!-- Header con degradado y placeholders -->
+		<header class="header">
+			<div class="header-content">
+				<div class="header-back-text">BS</div>
+				<img
+					src="./assets/header-image.png"
+					alt="Placeholder"
+					class="header-image"
+				/>
+				<div class="cta-section">
+					<a href="#"><button class="btn">Get an appointment</button></a>
+					<a href="#"><button class="btn ghost-btn">Get Information</button></a>
+				</div>
+			</div>
+		</header>
+
+		<div class="body-content">
+			<!-- Sección de servicios -->
+			<section id="services" class="services">
+				<h2 class="section-title">Nuestros Servicios</h2>
+				<div class="services-container">
+					<div class="service card">
+						<h3>Cabello</h3>
+						<hr />
+						<ul>
+							<li>Corte de cabello</li>
+							<li>Peinados</li>
+							<li>Tinte</li>
+							<li>Tratamientos capilares</li>
+							<li>Lavado y secado</li>
+							<li>Extensiones de cabello</li>
+						</ul>
+					</div>
+					<div class="service card">
+						<h3>Uñas</h3>
+						<hr />
+						<ul>
+							<li>Manicura</li>
+							<li>Pedicura</li>
+							<li>Decoración de uñas</li>
+							<li>Tratamiento de cutículas y fortalecimiento</li>
+						</ul>
+					</div>
+					<div class="service card">
+						<h3>Piel</h3>
+						<hr />
+						<ul>
+							<li>Limpieza facial</li>
+							<li>Tratamientos faciales</li>
+							<li>Peeling</li>
+							<li>Microdermabrasión</li>
+							<li>Mascarillas personalizadas</li>
+						</ul>
+					</div>
+					<div class="service card">
+						<h3>Maquillaje</h3>
+						<hr />
+						<ul>
+							<li>Maquillaje básico</li>
+							<li>Maquillaje profesional</li>
+							<li>Pestañas</li>
+							<li>Cejas</li>
+						</ul>
+					</div>
+					<div class="service card">
+						<h3>Depilación</h3>
+						<hr />
+						<ul>
+							<li>Depilación con cera</li>
+							<li>Depilación con hilo</li>
+							<li>Depilación láser</li>
+						</ul>
+					</div>
+					<div class="service card">
+						<h3>Cuerpo</h3>
+						<hr />
+						<ul>
+							<li>Masajes</li>
+							<li>Exfoliación corporal</li>
+							<li>Envolturas corporales</li>
+							<li>Tratamientos reductivos</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+
+			<!-- Sección de equipo -->
+			<section id="team" class="team">
+				<h2 class="section-title">Nuestro Equipo</h2>
+				<div class="team-container">
+					<div class="team-member">
+						<a href="https://instagram.com">
+							<img src="/assets/avatar.png" class="team-picture" />
+							<h3>Miembro 1</h3>
+						</a>
+					</div>
+					<div class="team-member">
+						<a href="https://instagram.com">
+							<img src="/assets/avatar.png" class="team-picture" />
+							<h3>Miembro 2</h3>
+						</a>
+					</div>
+					<div class="team-member">
+						<a href="https://instagram.com">
+							<img src="/assets/avatar.png" class="team-picture" />
+							<h3>Miembro 3</h3>
+						</a>
+					</div>
+					<div class="team-member">
+						<a href="https://instagram.com">
+							<img src="/assets/avatar.png" class="team-picture" />
+							<h3>Miembro 4</h3>
+						</a>
+					</div>
+					<div class="team-member">
+						<a href="https://instagram.com">
+							<img src="/assets/avatar.png" class="team-picture" />
+							<h3>Miembro 5</h3>
+						</a>
+					</div>
+					<div class="team-member">
+						<a href="https://instagram.com">
+							<img src="/assets/avatar.png" class="team-picture" />
+							<h3>Miembro 6</h3>
+						</a>
+					</div>
+				</div>
+			</section>
+
+			<!-- Why Us? -->
+			<section class="why-us">
+				<h2 class="section-title">Por qué elegirnos</h2>
+				<div class="why-us-container">
+					<div class="reason card">
+						<img src="/assets/sparkle.svg" class="reason-icon" />
+						<h3>Servicio Premium</h3>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+							eiusmod tempor incididunt ut labore et dolore magna aliqua.
+						</p>
+					</div>
+					<div class="reason card">
+						<img src="/assets/sun-horizon.svg" class="reason-icon" />
+						<h3>Estilo Único</h3>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute
+							irure dolor in reprehenderit in voluptate velit esse.
+						</p>
+					</div>
+					<div class="reason card">
+						<img src="/assets/heart.svg" class="reason-icon" />
+						<h3>Atención Personalizada</h3>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Excepteur
+							sint occaecat cupidatat non proident, sunt in culpa.
+						</p>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<!-- Footer con redes sociales -->
+		<footer class="footer">
+			<div class="footer-content">
+				<p>&copy; 2023 Beauty Saloon. Todos los derechos reservados.</p>
+				<div class="social-media">
+					<a href="#"
+						><img src="./assets/facebook-logo-fill.svg" alt="Facebook"
+					/></a>
+					<a href="#"
+						><img src="./assets/instagram-logo-fill.svg" alt="Instagram"
+					/></a>
+					<a href="#"><img src="./assets/x-logo-fill.svg" alt="Twitter" /></a>
+				</div>
+			</div>
+		</footer>
+
+		<script src="js/main.js"></script>
+	</body>
+</html>
