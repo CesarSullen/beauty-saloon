@@ -141,8 +141,6 @@ section h2 {
 
 .card {
   padding: 1rem;
-  background-color: #665b55;
-  color: #c8c5ba;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
@@ -154,6 +152,20 @@ section h2 {
   box-shadow: 0 4px 20px rgba(102, 91, 85, 0.8);
 }
 
+.show-up-blur {
+  animation: showUpBlurAnimation 1s ease-in;
+}
+
+@keyframes showUpBlurAnimation {
+  0% {
+    filter: blur(15px);
+    transform: translateY(10px);
+  }
+  to {
+    filter: blur(0px);
+    transform: translateY(0px);
+  }
+}
 .nav {
   position: sticky;
   top: 0;
@@ -164,7 +176,7 @@ section h2 {
   align-items: center;
   width: 100%;
   background: #c8c5ba;
-  filter: opacity(0.8);
+  filter: opacity(0.9);
   font-weight: bold;
   backdrop-filter: blur(5px);
 }
@@ -173,7 +185,6 @@ section h2 {
   display: flex;
   gap: 10px;
   align-items: center;
-  color: #665b55;
 }
 
 .nav-icon {
@@ -186,6 +197,7 @@ section h2 {
 }
 
 .nav-title {
+  color: #665b55;
   font-family: "MeowScript";
   font-size: 2rem;
 }
@@ -218,8 +230,10 @@ section h2 {
   }
 }
 
-.sidebar {
+.side-bar {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   position: fixed;
   top: 0;
   left: 0;
@@ -228,23 +242,41 @@ section h2 {
   transform: translateX(-200%);
   padding: 1rem;
   background-color: #665b55;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  text-transform: uppercase;
-  letter-spacing: 3px;
   z-index: -1;
 }
 
-.sidebar-link {
+.side-bar-links {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  gap: 25px;
+  align-items: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.side-bar-link {
   display: flex;
   gap: 10px;
   align-items: center;
   color: #c8c5ba;
   font-size: 1.5rem;
 }
-.sidebar-link:hover {
+.side-bar-link:hover {
   color: #665b55;
+}
+
+.side-bar-social {
+  margin-top: 50px;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  gap: 15px;
+}
+
+.social-link {
+  width: 50px;
 }
 
 .toggle-btn {
@@ -288,11 +320,12 @@ section h2 {
 
 .header {
   background: linear-gradient(to bottom, #c8c5ba, #665b55);
-  height: 100vh;
+  height: 90vh;
   position: relative;
   overflow: hidden;
 }
-.header .header-content {
+
+.header-content {
   position: relative;
   width: 100%;
   height: 100%;
@@ -300,7 +333,8 @@ section h2 {
   justify-content: center;
   align-items: center;
 }
-.header .header-content .header-back-text {
+
+.header-back-text {
   position: absolute;
   font-size: 50vw;
   font-weight: 900;
@@ -312,11 +346,26 @@ section h2 {
   transform: translateX(-50%);
 }
 @media screen and (min-width: 768px) {
-  .header .header-content .header-back-text {
+  .header-back-text {
     top: unset;
   }
 }
-.header .header-content .header-image {
+
+.header-title {
+  position: absolute;
+  top: 20px;
+  color: #665b55;
+  font-size: 25vw;
+  text-align: center;
+  line-height: 0.8;
+}
+@media screen and (min-width: 768px) {
+  .header-title {
+    font-size: 15vw;
+  }
+}
+
+.header-image {
   position: absolute;
   bottom: 0px;
   height: 70%;
@@ -324,11 +373,12 @@ section h2 {
   object-fit: cover;
 }
 @media screen and (min-width: 768px) {
-  .header .header-content .header-image {
+  .header-image {
     height: 90%;
   }
 }
-.header .header-content .cta-section {
+
+.cta-section {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -339,7 +389,7 @@ section h2 {
   bottom: 60px;
 }
 @media screen and (min-width: 768px) {
-  .header .header-content .cta-section {
+  .cta-section {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -368,8 +418,8 @@ section h2 {
 }
 .services-container .service {
   width: 100%;
-  max-width: 350px;
-  background: linear-gradient(to bottom, rgba(245, 245, 245, 0.75), rgba(200, 197, 186, 0.5));
+  max-width: 320px;
+  background: linear-gradient(rgba(200, 197, 186, 0.8), rgba(255, 255, 255, 0.1));
   border-radius: 8px;
   box-shadow: 0 3px 15px rgba(102, 91, 85, 0.2);
   text-align: left;
@@ -384,7 +434,7 @@ section h2 {
   text-transform: uppercase;
   letter-spacing: 1.5px;
   text-align: center;
-  margin-bottom: 15px;
+  text-decoration: underline;
 }
 .services-container .service ul {
   color: #333;
@@ -394,11 +444,6 @@ section h2 {
   content: "✦";
   margin-right: 5px;
   font-size: 0.9rem;
-}
-@media screen and (min-width: 768px) {
-  .services-container .service {
-    max-width: 380px;
-  }
 }
 
 .team {
@@ -457,7 +502,7 @@ section h2 {
 .reason {
   align-items: center;
   background: linear-gradient(rgba(200, 197, 186, 0.8), rgba(255, 255, 255, 0.1));
-  text-align: center;
+  text-align: left;
   color: #333;
 }
 .reason .reason-icon {
@@ -485,6 +530,7 @@ section h2 {
   color: white;
   padding: 20px;
   text-align: center;
+  padding-bottom: 50vh;
 }
 .footer .social-media {
   margin-top: 10px;
@@ -492,8 +538,8 @@ section h2 {
 .footer .social-media a {
   margin: 0 10px;
 }
-.footer .social-media a img {
-  width: 40px;
+.footer .social-media a .social-link {
+  width: 35px;
 }
 
 /*# sourceMappingURL=style.css.map */

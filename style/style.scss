@@ -1,4 +1,5 @@
 @import "reset";
+@import "animations";
 
 // Mixins
 @mixin flex-center {
@@ -18,7 +19,7 @@
 	align-items: center;
 	width: 100%;
 	background: $secondary-color;
-	filter: opacity(0.8);
+	filter: opacity(0.9);
 	font-weight: bold;
 	backdrop-filter: blur(5px);
 }
@@ -26,8 +27,8 @@
 	display: flex;
 	gap: 10px;
 	align-items: center;
-	color: $primary-color;
 }
+
 .nav-icon {
 	width: 40px;
 	@media screen and (min-width: 768px) {
@@ -35,6 +36,7 @@
 	}
 }
 .nav-title {
+	color: $primary-color;
 	font-family: "MeowScript";
 	font-size: 2rem;
 }
@@ -62,8 +64,10 @@
 		border-radius: 100vh;
 	}
 }
-.sidebar {
+.side-bar {
 	display: flex;
+	flex-direction: column;
+	justify-content: center;
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -72,14 +76,19 @@
 	transform: translateX(-200%);
 	padding: 1rem;
 	background-color: $primary-color;
+	z-index: -1;
+}
+.side-bar-links {
+	display: flex;
+	width: 100%;
 	flex-direction: column;
-	justify-content: space-evenly;
+	justify-content: center;
+	gap: 25px;
 	align-items: center;
 	text-transform: uppercase;
 	letter-spacing: 3px;
-	z-index: -1;
 }
-.sidebar-link {
+.side-bar-link {
 	display: flex;
 	gap: 10px;
 	align-items: center;
@@ -88,6 +97,16 @@
 	&:hover {
 		color: $primary-color;
 	}
+}
+.side-bar-social {
+	margin-top: 50px;
+	display: flex;
+	width: 100%;
+	justify-content: center;
+	gap: 15px;
+}
+.social-link {
+	width: 50px;
 }
 .toggle-btn {
 	background: none;
@@ -133,57 +152,66 @@
 // Header
 .header {
 	background: linear-gradient(to bottom, $secondary-color, $primary-color);
-	height: 100vh;
+	height: 90vh;
 	position: relative;
 	overflow: hidden;
+}
+.header-content {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	@include flex-center;
+}
+.header-back-text {
+	position: absolute;
+	font-size: 50vw;
+	font-weight: 900;
+	font-family: "MeowScript";
+	color: $secondary-color;
+	filter: blur(8px);
+	top: 15%;
+	left: 50%;
+	transform: translateX(-50%);
 
-	.header-content {
-		position: relative;
-		width: 100%;
-		height: 100%;
+	@media screen and (min-width: 768px) {
+		top: unset;
+	}
+}
+.header-title {
+	position: absolute;
+	top: 20px;
+	color: $primary-color;
+	font-size: 25vw;
+	text-align: center;
+	line-height: 0.8;
+
+	@media screen and (min-width: 768px) {
+		font-size: 15vw;
+	}
+}
+.header-image {
+	position: absolute;
+	bottom: 0px;
+	height: 70%;
+	max-width: 100%;
+	object-fit: cover;
+	@media screen and (min-width: 768px) {
+		height: 90%;
+	}
+}
+.cta-section {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	position: absolute;
+	width: 100%;
+	max-width: 600px;
+	padding: 1rem;
+	bottom: 60px;
+	@media screen and (min-width: 768px) {
 		@include flex-center;
-
-		.header-back-text {
-			position: absolute;
-			font-size: 50vw;
-			font-weight: 900;
-			font-family: "MeowScript";
-			color: $secondary-color;
-			filter: blur(8px);
-			top: 15%;
-			left: 50%;
-			transform: translateX(-50%);
-
-			@media screen and (min-width: 768px) {
-				top: unset;
-			}
-		}
-
-		.header-image {
-			position: absolute;
-			bottom: 0px;
-			height: 70%;
-			max-width: 100%;
-			object-fit: cover;
-			@media screen and (min-width: 768px) {
-				height: 90%;
-			}
-		}
-		.cta-section {
-			display: flex;
-			flex-direction: column;
-			gap: 10px;
-			position: absolute;
-			width: 100%;
-			max-width: 600px;
-			padding: 1rem;
-			bottom: 60px;
-			@media screen and (min-width: 768px) {
-				@include flex-center;
-				flex-direction: row;
-				top: unset;
-			}
-		}
+		flex-direction: row;
+		top: unset;
 	}
 }
 
@@ -193,6 +221,7 @@
 	font-size: 2.5rem;
 	margin-top: 2rem;
 }
+
 // Servicios
 .services-container {
 	display: grid;
@@ -206,12 +235,8 @@
 
 	.service {
 		width: 100%;
-		max-width: 350px;
-		background: linear-gradient(
-			to bottom,
-			rgba(whitesmoke, 0.75),
-			rgba($secondary-color, 0.5)
-		);
+		max-width: 320px;
+		background: linear-gradient(rgba($secondary-color, 0.8), rgba(white, 0.1));
 		border-radius: $border-radius-general;
 		box-shadow: 0 3px 15px rgba($primary-color, 0.2);
 		text-align: left;
@@ -226,7 +251,7 @@
 			text-transform: uppercase;
 			letter-spacing: 1.5px;
 			text-align: center;
-			margin-bottom: 15px;
+			text-decoration: underline;
 		}
 
 		ul {
@@ -238,10 +263,6 @@
 				margin-right: 5px;
 				font-size: 0.9rem;
 			}
-		}
-
-		@media screen and (min-width: 768px) {
-			max-width: 380px;
 		}
 	}
 }
@@ -304,7 +325,7 @@
 .reason {
 	align-items: center;
 	background: linear-gradient(rgba($secondary-color, 0.8), rgba(white, 0.1));
-	text-align: center;
+	text-align: left;
 	color: $text-color;
 
 	.reason-icon {
@@ -335,13 +356,15 @@
 	color: white;
 	padding: 20px;
 	text-align: center;
+	padding-bottom: 50vh;
 
 	.social-media {
 		margin-top: 10px;
 		a {
 			margin: 0 10px;
-			img {
-				width: 40px;
+
+			.social-link {
+				width: 35px;
 			}
 		}
 	}

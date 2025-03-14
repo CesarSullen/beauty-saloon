@@ -1,0 +1,13 @@
+.show-up-blur {
+	animation: showUpBlurAnimation 1s ease-in;
+}
+@keyframes showUpBlurAnimation {
+	0% {
+		filter: blur(15px);
+		transform: translateY(10px);
+	}
+	to {
+		filter: blur(0px);
+		transform: translateY(0px);
+	}
+}
