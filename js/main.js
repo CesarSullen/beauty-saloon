@@ -1,25 +1,33 @@
 // Nav Bar Toggle
 
-let toggleBtn = document.getElementById("toggleBtn");
+let toggleBtn = document.getElementById("toggle-btn");
 let headerTitle = document.querySelector(".nav-title");
 let body = document.getElementById("body");
+let links = document.querySelectorAll(".side-bar-link");
+let sideBar = document.getElementById("side-bar");
 
 toggleBtn.addEventListener("click", toggleMenu);
 
 function toggleMenu() {
-	this.classList.toggle("toggled");
+	toggleBtn.classList.toggle("toggled");
 
-	let links = document.getElementById("side-bar");
 	if (
-		links.style.transform === "translateX(-200%)" ||
-		links.style.transform === ""
+		sideBar.style.transform === "translateX(-200%)" ||
+		sideBar.style.transform === ""
 	) {
 		headerTitle.style.color = "#c8c5ba";
-		links.style.transform = "translateX(0px)";
+		sideBar.style.transform = "translateX(0px)";
 		body.style.overflowY = "hidden";
 	} else {
 		headerTitle.style.color = "#665b55";
-		links.style.transform = "translateX(-200%)";
-		body.style.overflowY = "scroll";
+		sideBar.style.transform = "translateX(-200%)";
+		body.style.overflowY = "auto";
 	}
 }
+links.forEach((link) =>
+	link.addEventListener("click", () => {
+		sideBar.style.transform = "translateX(-200%)";
+		body.style.overflowY = "auto";
+		toggleBtn.classList.toggle("toggled");
+	})
+);

@@ -1,5 +1,6 @@
 @import "reset";
 @import "animations";
+@import "navbar";
 
 // Mixins
 @mixin flex-center {
@@ -7,146 +8,10 @@
 	justify-content: center;
 	align-items: center;
 }
-
-// Navigation
-.nav {
-	position: sticky;
-	top: 0;
-	z-index: 1000;
-	padding: 1rem;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	width: 100%;
-	background: $secondary-color;
-	filter: opacity(0.9);
-	font-weight: bold;
-	backdrop-filter: blur(5px);
-}
-.nav-icon-wrapper {
-	display: flex;
-	gap: 10px;
-	align-items: center;
-}
-
-.nav-icon {
-	width: 40px;
-	@media screen and (min-width: 768px) {
-		width: 50px;
-	}
-}
-.nav-title {
-	color: $primary-color;
-	font-family: "MeowScript";
-	font-size: 2rem;
-}
-.nav-links {
-	display: none;
-	@media screen and (min-width: 768px) {
-		display: flex;
-		gap: 2rem;
-		letter-spacing: 2px;
-		text-transform: uppercase;
-		align-items: center;
-		p {
-			color: $primary-color;
-			&:hover {
-				color: white;
-			}
-		}
-	}
-}
-.nav-link {
-	@media screen and (min-width: 768px) {
-		padding: 0.5rem 1rem;
-		display: flex;
-		gap: 10px;
-		border-radius: 100vh;
-	}
-}
-.side-bar {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100vh;
-	transform: translateX(-200%);
-	padding: 1rem;
-	background-color: $primary-color;
-	z-index: -1;
-}
-.side-bar-links {
-	display: flex;
-	width: 100%;
-	flex-direction: column;
-	justify-content: center;
-	gap: 25px;
-	align-items: center;
-	text-transform: uppercase;
-	letter-spacing: 3px;
-}
-.side-bar-link {
-	display: flex;
-	gap: 10px;
-	align-items: center;
-	color: $secondary-color;
-	font-size: 1.5rem;
-	&:hover {
-		color: $primary-color;
-	}
-}
-.side-bar-social {
-	margin-top: 50px;
-	display: flex;
-	width: 100%;
-	justify-content: center;
-	gap: 15px;
-}
-.social-link {
-	width: 50px;
-}
-.toggle-btn {
-	background: none;
-	display: flex;
-	cursor: pointer;
-	flex-direction: column;
-	justify-content: space-around;
-	width: 30px;
-	height: 25px;
-	padding: 2px;
-	border-radius: 2px;
-
-	&:active {
-		background-color: #4d4848;
-	}
-
-	@media screen and (min-width: 768px) {
-		display: none;
-	}
-	.bar {
-		height: 2px;
-		width: 100%;
-		background-color: $primary-color;
-		border-radius: 2px;
-		transition: transform 0.4s ease, opacity 0.2s ease;
-	}
-	&.toggled {
-		.bar:first-child {
-			transform: rotate(45deg) translate(5px, 5px);
-			background-color: $secondary-color;
-		}
-		.bar:last-child {
-			transform: rotate(-45deg) translate(5px, -5px);
-			background-color: $secondary-color;
-		}
-		.bar:nth-child(2) {
-			opacity: 0;
-			background-color: $secondary-color;
-		}
-	}
+@mixin animation-delay($delay) {
+	animation-delay: $delay;
+	filter: blur(15px);
+	transform: translateY(300vh);
 }
 
 // Header
@@ -168,7 +33,7 @@
 	font-weight: 900;
 	font-family: "MeowScript";
 	color: $secondary-color;
-	filter: blur(8px);
+	filter: blur(0px);
 	top: 15%;
 	left: 50%;
 	transform: translateX(-50%);
@@ -185,6 +50,9 @@
 	text-align: center;
 	line-height: 0.8;
 
+	:last-child {
+		@include animation-delay(0.2s);
+	}
 	@media screen and (min-width: 768px) {
 		font-size: 15vw;
 	}
@@ -195,6 +63,9 @@
 	height: 70%;
 	max-width: 100%;
 	object-fit: cover;
+
+	@include animation-delay(0.6s);
+
 	@media screen and (min-width: 768px) {
 		height: 90%;
 	}
@@ -208,6 +79,14 @@
 	max-width: 600px;
 	padding: 1rem;
 	bottom: 60px;
+
+	.btn {
+		@include animation-delay(0.9s);
+	}
+	.ghost-btn {
+		@include animation-delay(1.1s);
+	}
+
 	@media screen and (min-width: 768px) {
 		@include flex-center;
 		flex-direction: row;
@@ -356,7 +235,7 @@
 	color: white;
 	padding: 20px;
 	text-align: center;
-	padding-bottom: 50vh;
+	padding-block: 20vh;
 
 	.social-media {
 		margin-top: 10px;
