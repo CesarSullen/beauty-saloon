@@ -51,7 +51,7 @@ $border-radius-general: 8px;
 }
 hr {
 	width: 100%;
-	background-color: $primary-color;
+	background-color: $secondary-color;
 	height: 2px;
 }
 body {
@@ -149,9 +149,48 @@ section {
 	flex-direction: column;
 	gap: 10px;
 	box-shadow: 0 4px 20px rgba($primary-color, 0.3);
+	background: rgba(245, 245, 245, 0.5);
+	position: relative;
+	overflow: hidden;
+
+	&::before {
+		content: "✿";
+		position: absolute;
+		top: 0px;
+		left: 10px;
+		font-size: 8rem;
+		color: rgba($primary-color, 0.1);
+		pointer-events: none;
+		line-height: 1;
+		transform: translateY(25%);
+		z-index: -1;
+		opacity: 0;
+		transition: opacity 0.3s ease;
+		rotate: 180deg;
+	}
+
+	&::after {
+		content: "✿";
+		position: absolute;
+		bottom: 0;
+		right: 10px;
+		font-size: 8rem;
+		color: rgba($primary-color, 0.1);
+		pointer-events: none;
+		line-height: 1;
+		transform: translateY(25%);
+		z-index: -1;
+		opacity: 0;
+		transition: opacity 0.3s ease;
+	}
 
 	&:hover {
 		transform: translateY(-5px);
 		box-shadow: 0 4px 20px rgba($primary-color, 0.8);
+	}
+
+	&:hover::before,
+	&:hover::after {
+		opacity: 1;
 	}
 }
