@@ -20,6 +20,7 @@
 	height: 90vh;
 	position: relative;
 	overflow: hidden;
+	border-radius: 30px;
 }
 .header-content {
 	position: relative;
@@ -99,6 +100,11 @@
 	text-transform: uppercase;
 	font-size: 2.5rem;
 	margin-top: 2rem;
+
+	&::after {
+		content: url(../assets/styled-underline.png);
+		display: block;
+	}
 }
 
 // Servicios
@@ -118,9 +124,19 @@
 		border-radius: $border-radius-general;
 		box-shadow: 0 3px 15px rgba($primary-color, 0.2);
 		text-align: left;
+		.service-img {
+			width: 100%;
+		}
 		&:hover {
 			transform: scale(1.03);
 			box-shadow: 0 5px 25px rgba($primary-color, 0.35);
+
+			h3 {
+				color: $secondary-color;
+			}
+			.service-img {
+				scale: 1.5;
+			}
 		}
 
 		h3 {
@@ -129,7 +145,6 @@
 			text-transform: uppercase;
 			letter-spacing: 1.5px;
 			text-align: center;
-			text-decoration: underline;
 		}
 
 		ul {
@@ -201,7 +216,6 @@
 }
 
 .reason {
-	align-items: center;
 	text-align: left;
 	color: $text-color;
 
