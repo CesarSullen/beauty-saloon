@@ -88,12 +88,6 @@ a {
 	overflow: hidden;
 	transition: all 0.3s ease;
 
-	&:hover {
-		background: lighten($primary-color, 10%);
-		box-shadow: 0 4px 12px rgba($primary-color, 0.3);
-		transform: translateY(-2px);
-	}
-
 	&:active {
 		transform: scale(0.95);
 		box-shadow: none;
@@ -115,6 +109,10 @@ a {
 	&:hover:after {
 		width: 300px;
 		height: 300px;
+		pointer-events: none;
+	}
+	&:hover {
+		translate: 0px -5px;
 	}
 }
 

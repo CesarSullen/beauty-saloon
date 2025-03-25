@@ -218,7 +218,9 @@
 .reason {
 	text-align: left;
 	color: $text-color;
-
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 	.reason-icon {
 		width: 50px;
 	}
@@ -239,6 +241,55 @@
 	@media screen and (min-width: 768px) {
 		max-width: 320px;
 	}
+}
+
+// Reviews
+.reviews {
+	width: 100%;
+	overflow: hidden;
+}
+
+.carousel-container {
+	position: relative;
+	width: 100%;
+	display: flex;
+	transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+	position: relative;
+	min-width: 100%;
+}
+
+.carousel-image {
+	width: 100%;
+	max-width: 400px;
+	border-radius: $border-radius-general;
+}
+
+.review {
+	position: absolute;
+	bottom: 10%;
+	right: 50%;
+	transform: translateX(50%) rotate(5deg);
+	background: white;
+	padding: 10px;
+	border-radius: $border-radius-general;
+	width: 100%;
+	max-width: 250px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.review-name {
+	font-size: 1.1rem;
+	font-weight: bold;
+	margin-bottom: 5px;
+	color: $text-color;
+}
+
+.review-text {
+	font-size: 0.9rem;
+	color: $text-color;
 }
 
 // Footer
