@@ -124,7 +124,7 @@
 		border-radius: $border-radius-general;
 		box-shadow: 0 3px 15px rgba($primary-color, 0.2);
 		text-align: left;
-		.service-img {
+		.service-image {
 			width: 100%;
 		}
 		&:hover {
@@ -134,7 +134,7 @@
 			h3 {
 				color: $secondary-color;
 			}
-			.service-img {
+			.service-image {
 				scale: 1.5;
 			}
 		}
@@ -244,51 +244,65 @@
 }
 
 // Reviews
-.reviews {
-	width: 100%;
-	overflow: hidden;
-}
-
 .carousel-container {
-	position: relative;
 	width: 100%;
+	height: 300px;
+	position: relative;
 	display: flex;
-	transition: transform 0.5s ease-in-out;
-}
-
-.carousel-item {
-	position: relative;
-	min-width: 100%;
-}
-
-.carousel-image {
-	width: 100%;
-	max-width: 400px;
-	border-radius: $border-radius-general;
 }
 
 .review {
 	position: absolute;
-	bottom: 10%;
-	right: 50%;
-	transform: translateX(50%) rotate(5deg);
-	background: white;
-	padding: 10px;
-	border-radius: $border-radius-general;
+	display: flex;
+	flex-direction: row;
+	padding: 0.5rem;
+	gap: 10px;
 	width: 100%;
-	max-width: 250px;
-	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	max-height: 300px;
+	top: 0;
+	left: -50%;
+	translate: 50% 0;
+	opacity: 0;
+	transform: scale(0.9);
+	transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+
+	border-radius: $border-radius-general;
+	box-shadow: 0 4px 20px rgba($primary-color, 0.3);
+	background: rgba(245, 245, 245, 0.5);
+	border: $border-general;
+
+	&.active {
+		opacity: 1;
+		z-index: 1;
+		transform: scale(1);
+	}
+}
+
+.review-image {
+	border-radius: $border-radius-general;
+	border: $border-general;
+	width: 40%;
+	aspect-ratio: 3/4;
+	object-fit: cover;
+}
+
+.review-content {
+	text-align: left;
+	display: flex;
+	flex-direction: column;
 }
 
 .review-name {
-	font-size: 1.1rem;
-	font-weight: bold;
-	margin-bottom: 5px;
-	color: $text-color;
+	font-size: 1.4rem;
+	color: $primary-color;
 }
-
+.review-stars {
+	font-size: 1.5rem;
+	letter-spacing: 2px;
+}
 .review-text {
-	font-size: 0.9rem;
+	margin: 0;
+	font-style: italic;
 	color: $text-color;
 }
 

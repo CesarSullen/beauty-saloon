@@ -33,15 +33,16 @@ links.forEach((link) =>
 );
 
 // Carousel
-
 const carouselContainer = document.querySelector(".carousel-container");
-const carouselItems = document.querySelectorAll(".carousel-item");
+const reviews = document.querySelectorAll(".review");
 let currentIndex = 0;
 
+reviews[currentIndex].classList.add("active");
+
 function moveCarousel() {
-	currentIndex = (currentIndex + 1) % carouselItems.length;
-	const offset = -currentIndex * 100;
-	carouselContainer.style.transform = `translateX(${offset}%)`;
+	reviews[currentIndex].classList.remove("active");
+	currentIndex = (currentIndex + 1) % reviews.length;
+	reviews[currentIndex].classList.add("active");
 }
 
 setInterval(moveCarousel, 5000);
